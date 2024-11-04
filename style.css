@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+:root {
+    --dark-color: #000000;
+    --dark-bg: #1a1a1a;
+    --light-color: #fff;
+    --light-bg: #f4f4f4;
+    --bg: var(--light-bg);
+    --color: var(--dark-color);
+    --red: #da3f3f;
+    --danger: #b61313;
+    --yellow: #f0c929;
+    --green: #32ad32;
+    --success: #0dce0d;
+    --blue: #2e6ee6;
+    --primary: #1a4e8a;
+    --focus-color: #00ff9d;
+    --purple: #8c21ca;
+    --magenta: #e82b8a;
+    --font: 'Rubik', sans-serif;
+    --scroll-font: 'Rubik Mono One', sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color);
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+    color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark light;
+        --bg: var(--dark-bg);
+        --color: var(--light-color);
+        /* darker colors */
+        --red: #791717;
+        --yellow: #72600e;
+        --green: #0e500e;
+        --blue: #133274;
+        --focus-color: #00be75;
+        --purple: #581274;
+        --magenta: #630b36;
+        
+    }
+
+}
+button {
+    font-family: var(--font);
+    font-weight: bold;
+    transition: all 0.2s ease-out;
+    padding: 0.6em 1em;
+    background-color: var(--primary);
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1);
+}
+button:focus-visible {
+    outline: 2px solid var(--focus-color);
+    border: none;
+    box-shadow: 0 0 10px var(--focus-color) !important;
+}
+button:hover {
+    transform: scale(1.2);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 20px 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.big {
+    font-size: larger;
+    font-weight: 550;
+}
+
+::selection {
+    background-color: #2bb4d652;
+    text-shadow: 0 0 10px #424242;
+    
+}
+
+#info {
+    margin: 0;
+    padding: 0 20px;
+    background-color: var(--bg);
+    color: var(--color);
+    height: 100vh;
+    scroll-snap-align: start;
+    padding-top: 20px;
+}
+svg.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+}
+svg.icon path {
+    fill: currentColor;
+}
+
+
+#start-text {
+    color: var(--light-color);
+    background-color: var(--success);
+    padding: 20px;
+
+}
+
+.page {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    color: var(--light-color);
+    font-family: var(--scroll-font);
+    text-shadow: 0 0 10px var(--dark-color);
+}
+.page.seen {
+    animation: pop 1s normal;
+}
+
+#message {
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+    margin: auto;
+    left: 0;
+    width: 100%;
+}
+
+@keyframes pop {
+    0% {
+        font-size: 6rem;
+    }
+    50% {
+        font-size: 6.5rem;
+    }
+    100% {
+        font-size: 6rem;
+    }
+}
+
+#reset {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--danger);
+    box-shadow: 0 0 10px var(--dark-color);
+}
+
+.red {
+    background-color: var(--red);
+}
+.yellow {
+    background-color: var(--yellow);
+}
+.green {
+    background-color: var(--green);
+}
+.blue {
+    background-color: var(--blue);
+}
+.purple {
+    background-color: var(--purple);
+}
+.magenta {
+    background-color: var(--magenta);
+}
+@media (forced-colors: active) {
+    button {
+        border: 2px solid ButtonBorder;
+    }
+    button:focus-visible {
+        border-color: Highlight;
+    }
+    button:hover {
+        border-color: Highlight;
+    }
+}
+/*
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }    
+}
+*/
