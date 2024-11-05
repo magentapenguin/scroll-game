@@ -11,10 +11,12 @@
     --red: #da3f3f;
     --danger: #b61313;
     --yellow: #f0c929;
+    --warning: #c4950b;
     --green: #32ad32;
     --success: #0dce0d;
     --blue: #2e6ee6;
     --primary: #1a4e8a;
+    --info: #0dcece;
     --focus-color: #00ff9d;
     --purple: #8c21ca;
     --magenta: #e82b8a;
@@ -23,6 +25,9 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+
     font-family: var(--font);
     font-size: 16px;
     line-height: 1.6;
@@ -60,6 +65,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transform: scale(1);
+
 }
 button:focus-visible {
     outline: 2px solid var(--focus-color);
@@ -67,7 +73,7 @@ button:focus-visible {
     box-shadow: 0 0 10px var(--focus-color) !important;
 }
 button:hover {
-    transform: scale(1.2);
+    filter: contrast(1.2) grayscale(0.3);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -102,6 +108,20 @@ p {
     height: 100vh;
     scroll-snap-align: start;
     padding-top: 20px;
+    max-height: 100vh;
+    /*overflow-y: auto;*/
+}
+#timer {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    font-family: var(--font);
+    text-align: center;
+    margin: 5px;
+    padding: 0;
+    color: var(--light-color);
+    text-shadow: 0 0 10px var(--dark-color);
 }
 svg.icon {
     width: 1em;
@@ -202,3 +222,89 @@ svg.icon path {
     }    
 }
 */
+/* <details> */
+details[open] {
+    margin-left: 1rem;
+}
+details[open] summary {
+    margin-left: -1rem;
+}
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#reset-achievements {
+    background-color: var(--danger);
+}
+
+#achievements {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: space-between;
+    gap: 5px;
+    padding: 20px;
+    overscroll-behavior: contain;
+}
+
+.achievement {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--dark-color);
+    background-color: var(--bg);
+}
+.achievement.unlocked .achievement-title {
+    margin-right: 2em;
+}
+.achievement:not(.unlocked) {
+    opacity: 0.8;
+}
+.achievement-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 1.5em;
+}
+.achievement-text {
+    margin-left: 1.5em;
+    margin-top: 0.5em;
+    margin-right: 0.1em;
+    font-size: 1rem;
+}
+.achievement-icon {
+    top: 0.5em;
+    left: 0.5em;
+    font-size: 1.5rem;
+    position: absolute;
+    color: var(--warning);
+}
+
+.achievement:not(.unlocked) .achievement-icon {
+    filter: grayscale(1);
+}
+.achievement-icon-unlocked {
+    color: var(--success);
+    top: 0.5em;
+    right: 0.5em;
+    font-size: 1.5rem;
+    position: absolute;
+    display: none;    
+}
+.achievement.unlocked .achievement-icon-unlocked {
+    display: block;
+}
+
+#warning {
+    position: fixed;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    pointer-events: none;
+    text-shadow: 0 0 3px var(--bg), 0 0 6px var(--bg), 0 0 9px var(--bg);
+}
