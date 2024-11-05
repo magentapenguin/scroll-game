@@ -1,7 +1,6 @@
 // pings the server every 30 seconds to check if the file has been modified
 // reloads the page if it has
-// pings the server every 30 seconds to check if the file has been modified
-// reloads the page if it has
+
 (()=>{
     // find all files that are loaded by the page
     var reloadable = Array.from(document.querySelectorAll('script, link[rel="stylesheet"], img'));
@@ -28,6 +27,6 @@
     // check for changes at least every 30 seconds
     requestIdleCallback(async function check() {
         await checkForChanges();
-        setTimeout(() => requestIdleCallback(check, { timeout: 30000 }), 10000);
+        setTimeout(() => requestIdleCallback(check, { timeout: 30000 }), 60000);
     }, { timeout: 30000 });
 })();

@@ -1,4 +1,4 @@
-function toast(title, message, options) {
+export default function toast(title, message, options) {
     const { 
         duration = 3000, 
         type = 'info', 
