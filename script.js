@@ -111,6 +111,7 @@ const achievements = [
     // other
     {id: 12, name: 'Achievement Hunter', desc: 'Unlock all achievements', check: () => achievementsSeen.length === achievements.length-1},
     {id: 13, hidden: true, name: 'Find Bob', desc: 'Find Bob', check: () => document.getElementById('bob')?.getAttribute('data-found') === 'true'},
+    {id: 15, hidden: true, name: 'Kill Bob', desc: 'You are a horrible person.', check: () => document.getElementById('bob')?.getAttribute('data-dead') === 'true'},
 ]
 let achievementsSeen = JSON.parse(localStorage.getItem('achievementsSeen') ?? '[]');
 function checkAchievements() {
@@ -147,6 +148,7 @@ function updateAchievements() {
         } else {
             el.classList.remove('unlocked');
         }
+        
     }
 }
 

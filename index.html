@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doomscrolling: The Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha512-p7Ey2nBhKYEi9yh0iDs+GMA0ttebOqVl3OO2oWRzRxtDoN/RedyYcHFUJZhMVi8NKRdEA7n+9NTNQX/kFIZgNw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="toast.css">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 </head>
 <body>
+    <autoreloader-ui></autoreloader-ui>
     <div id='info'>
         <div id="info-wrapper">
         <h1>Doomscrolling: The Game</h1>
@@ -17,14 +19,10 @@
         <details id="achievements-container">
             <summary>Achievements</summary>
             <button id='reset-achievements'>Reset</button>
-            <div id='achievements'>
-                
-            </div>
+            <div id='achievements'></div>
         </details>
         </div>
-        <bo-b></bo-b>
         <div id='message'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="icon"><!--!Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M32 480c-17.7 0-32-14.3-32-32s14.3-32 32-32l320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 480zM214.6 342.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 242.7 160 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 178.7 73.4-73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-128 128z"/></svg> Scroll down to start! <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="icon"><!--!Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path d="M32 480c-17.7 0-32-14.3-32-32s14.3-32 32-32l320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 480zM214.6 342.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 242.7 160 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 178.7 73.4-73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-128 128z"/></svg></div>
-        
     </div>
     <div id="start-text">Keep scrolling!</div>
     <button id='reset' style="display: none;">Reset</button>
@@ -33,7 +31,7 @@
     </div>
     <div id="warning">Warning: This game is in development and may not work as expected. It may also contain bugs. Please report any bugs to the developer.</div>
     <script src="script.js" type="module"></script>
+    <script src="autoreloader-ui.js"></script>
     <script src="autoreloader.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha512-p7Ey2nBhKYEi9yh0iDs+GMA0ttebOqVl3OO2oWRzRxtDoN/RedyYcHFUJZhMVi8NKRdEA7n+9NTNQX/kFIZgNw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
