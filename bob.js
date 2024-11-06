@@ -53,11 +53,16 @@ export default class Bob extends HTMLElement {
             }
         </style>
     </div>
+
+    
+</div>
     <style>
         .bob-particles {
             position: relative;
-            top: 50%;
-            left: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
         .particle {
             position: absolute;
@@ -65,11 +70,9 @@ export default class Bob extends HTMLElement {
             height: var(--size);
             background-color: var(--bob);
             border-radius: 50%;
+
         }
     </style>
-
-    
-</div>
 <div class="bob-particles">
         
 </div>`;
@@ -117,13 +120,15 @@ export default class Bob extends HTMLElement {
             particle.style.setProperty('--y', y);
 
             particle.animate([
-                { opacity: 1 },
-                { transform: `translate(${tx}, ${ty})`, opacity: 0 },
+                { transform: 'translate(-50%, -50%)', opacity: 1 },
+                { transform: `translate(-50%, -50%) translate(${tx}, ${ty})`, opacity: 0 },
             ], {
                 duration: 1000 + Math.random() * 1000,
                 easing: 'ease-in',
                 fill: 'forwards'
-            });
+            }).onfinish = () => {
+                particle.remove();
+            };
 
             particlesContainer.appendChild(particle);
         }
