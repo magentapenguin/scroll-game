@@ -33,7 +33,7 @@ window.autoreloader = {
             try {
                 const response = await fetch(file.src || file.href, { cache: 'no-store', method: 'HEAD', timeout: 5000 });
                 const lastModified = response.headers.get('last-modified');
-                console.log(file.src, lastModified);
+                console.log('%s', file.src, lastModified);
                 window.autoreloader.noConnection = false;
                 if (lastModified && new Date(lastModified).getTime() > startTime) {
                     window.autoreloader.shouldReload = true;
