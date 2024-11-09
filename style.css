@@ -288,8 +288,11 @@ summary {
 }
 .achievement.secret:not(.unlocked) {
     color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
     pointer-events: none;
+    text-shadow: 0 0 10px rgb(from var(--color) r g b / 0.2); /* blur the text */
 }
 .achievement.secret:not(.unlocked)::after {
     color: var(--color);

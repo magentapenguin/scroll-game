@@ -11,7 +11,7 @@ window.autoreloader = {
     const wait = 30000;
     const ignore = ['fonts.googleapis.com','cdnjs.cloudflare.com','cdn.jsdelivr.net']
     // find all files that are loaded by the page
-    // using Preformance.getEntriesByType('resource')
+    // using Performance.getEntriesByType('resource')
     const reloadable = Array.from(performance.getEntriesByType('resource')).map(({ name }) => ({ src: name }));
     reloadable.push({ src: location.href });
     // remove files that should be ignored
@@ -37,7 +37,7 @@ window.autoreloader = {
                 window.autoreloader.noConnection = false;
                 if (lastModified && new Date(lastModified).getTime() > startTime) {
                     window.autoreloader.shouldReload = true;
-                    location.reload();
+                    //location.reload();
                 }
             }
             catch (e) {
